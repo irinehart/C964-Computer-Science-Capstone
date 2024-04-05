@@ -20,7 +20,7 @@ mylog_model.fit(x,y)
 y_pred = mylog_model.predict(x)
 
 print("This program aims to predict if you are a boy or a girl based on your grades.")
-print("This data is older and we wish to see if our school has done a better job of helping boys in the classroom as classically girls do better in school.")
+print("We are interested in evaluating if our school has improved in supporting boys academically, considering that girls traditionally outperform boys in school.")
 print("This program has a prediction accuracy of", metrics.accuracy_score(y, y_pred), "percent.")
 print("")
 
@@ -50,5 +50,13 @@ for i in range(len(x)):
 
 y_pred = mylog_model.predict([[math_grade, reading_grade, writing_grade]])
 print("The data suggests you are a", y_pred)
-input("Is this accurate (Y/N)?")
+
+valid_responses = ["y", "n", "yes", "no", "Y", "N", "Yes", "No", "YES", "NO"]
+while True:
+    response = input("Is this accurate (Y/N)? ").lower()
+    if response in valid_responses:
+        break
+    else:
+        print("Please enter Y or N.")
+
 print("Thank you for participating have a good day!")
